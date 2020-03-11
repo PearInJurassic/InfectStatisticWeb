@@ -1,0 +1,98 @@
+#title {
+    background: #0094ff;
+    color: #ffffff;
+    position: absolute;
+    height: 10%;
+    width: 70%;
+    top: 0%;
+    left: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#left {
+    background: #808080;
+    color: #ffffff;
+    position: absolute;
+    height: 150%;
+    width: 15%;
+    top: 10%;
+    left: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#right {
+    background: #ff0000;
+    color: #ffffff;
+    position: absolute;
+    height: 150%;
+    width: 55%;
+    top: 10%;
+    left: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#icon1 {
+    position: absolute;
+    height: 7%;
+    width: 7%;
+    left: 19%;
+    top: 20%;
+    text-align: center;
+}
+
+#icon2 {
+    position: absolute;
+    height: 7%;
+    width: 7%;
+    left: 19%;
+    top: 42%;
+    text-align: center;
+}
+
+#icon3 {
+    position: absolute;
+    height: 7%;
+    width: 7%;
+    left: 19%;
+    top: 64%;
+    text-align: center;
+}
+
+#icon4 {
+    position: absolute;
+    height: 7%;
+    width: 7%;
+    left: 19%;
+    top: 86%;
+    text-align: center;
+}
+
+#icon5 {
+    position: absolute;
+    height: 7%;
+    width: 7%;
+    left: 19%;
+    top: 108%;
+    text-align: center;
+}
+
+#icon2_img {
+    border-radius: 50%;
+}
+
+#icon3_img {
+    border-radius: 50%;
+}
+
+#icon4_img {
+    border-radius: 50%;
+}
