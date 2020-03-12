@@ -1,223 +1,220 @@
-// JavaScript source code
-<script>
-	  var dom = document.getElementById("map");
-	  var myChart = echarts.init(dom);
-	  var app = {};
-	  option = null;
-	  option = {
-			title: {
-			  text: "“ﬂ«ÈµÿÕº",
-			  subtext: "¥ø Ù–Èππ",
-			  x: "center"
-			},
-			tooltip: {
-			  trigger: "item"
-			},
-			legend: {
-			  orient: "vertical",
-			  x: "left",
-			  data: ["¿€º∆»∑’Ô"],
-			  selectedMode: false
-			},
-			dataRange: {
-			  min: 0,
-			  max: 1200,
-			  x: "left",
-			  y: "bottom",
-			  text: ["∏ﬂ", "µÕ"],
-			  calculable: true,
-			  color: ["rgb(188, 56, 89)", "rgb(221, 186, 197)"],
-			  splitNumber: 24
-			},
-			toolbox: {
-			  show: true,
-			  orient: "vertical",
-			  x: "right",
-			  y: "bottom",
-			  feature: {
-				mark: {
-				  show: true
-				},
-				dataView: {
-				  show: true,
-				  readOnly: false
-				},
-				restore: {
-				  show: true
-				},
-				saveAsImage: {
-				  show: true
-				}
-			  }
-			},
-			roamController: {
-			  show: true,
-			  x: "right",
-			  mapTypeControl: {
-				china: true
-			  }
-			},
-			series: [
-			  {
-				name: "¿€º∆»∑’Ô",
-				type: "map",
-				mapType: "china",
-				roam: false,
-				mapValueCalculation: "sum",
-				itemStyle: {
-				  normal: {
-					label: {
-					  show: true
-					}
-				  },
-				  emphasis: {
-					label: {
-					  show: true
-					}
-				  }
-				},
-				data: [
-				  {
-					value: 64786,
-					name: "∫˛±±"
-				  },
-				  {
-					value: 1347,
-					name: "π„∂´"
-				  },
-				  {
-					value: 1271,
-					name: "∫”ƒœ"
-				  },
-				  {
-					value: 1205,
-					name: "’„Ω≠"
-				  },
-				  {
-					value: 1016,
-					name: "∫˛ƒœ"
-				  },
-				  {
-					value: 989,
-					name: "∞≤ª’"
-				  },
-				  {
-					value: 934,
-					name: "Ω≠Œ˜"
-				  },
-				  {
-					value: 754,
-					name: "…Ω∂´"
-				  },
-				  {
-					value: 631,
-					name: "Ω≠À’"
-				  },
-				  {
-					value: 576,
-					name: "÷ÿ«Ï"
-				  },
-				  {
-					value: 529,
-					name: "Àƒ¥®"
-				  },
-				  {
-					value: 480,
-					name: "∫⁄¡˙Ω≠"
-				  },
-				  {
-					value: 400,
-					name: "±±æ©"
-				  },
-				  {
-					value: 336,
-					name: "…œ∫£"
-				  },
-				  {
-					value: 311,
-					name: "∫”±±"
-				  },
-				  {
-					value: 294,
-					name: "∏£Ω®"
-				  },
-				  {
-					value: 252,
-					name: "π„Œ˜"
-				  },
-				  {
-					value: 245,
-					name: "…¬Œ˜"
-				  },
-				  {
-					value: 174,
-					name: "‘∆ƒœ"
-				  },
-				  {
-					value: 168,
-					name: "∫£ƒœ"
-				  },
-				  {
-					value: 146,
-					name: "πÛ÷›"
-				  },
-				  {
-					value: 135,
-					name: "ÃÏΩÚ"
-				  },
-				  {
-					value: 133,
-					name: "…ΩŒ˜"
-				  },
-				  {
-					value: 121,
-					name: "¡…ƒ˛"
-				  },
-				  {
-					value: 93,
-					name: "º™¡÷"
-				  },
-				  {
-					value: 91,
-					name: "∏ À‡"
-				  },
-				  {
-					value: 81,
-					name: "œ„∏€"
-				  },
-				  {
-					value: 76,
-					name: "–¬ΩÆ"
-				  },
-				  {
-					value: 75,
-					name: "ƒ⁄√…π≈"
-				  },
-				  {
-					value: 71,
-					name: "ƒ˛œƒ"
-				  },
-				  {
-					value: 30,
-					name: "Ã®ÕÂ"
-				  },
-				  {
-					value: 18,
-					name: "«‡∫£"
-				  },
-				  {
-					value: 10,
-					name: "∞ƒ√≈"
-				  },
-				  {
-					value: 1,
-					name: "Œ˜≤ÿ"
-				  }
-				]
-			  }
-			]
-		  };;
-	  if (option && typeof option === "object") {
-		myChart.setOption(option, true);
-	  }
-</script>
+var dom = document.getElementById("map");
+  var myChart = echarts.init(dom);
+  var app = {};
+  option = null;
+  option = {
+    title: {
+      text: "Áñ´ÊÉÖÂú∞Âõæ",
+      subtext: "Á∫ØÂ±ûËôöÊûÑ",
+      x: "center"
+    },
+    tooltip: {
+      trigger: "item"
+    },
+    legend: {
+      orient: "vertical",
+      x: "left",
+      data: ["Á¥ØËÆ°Á°ÆËØä"],
+      selectedMode: false
+    },
+    dataRange: {
+      min: 0,
+      max: 1200,
+      x: "left",
+      y: "bottom",
+      text: ["È´ò", "‰Ωé"],
+      calculable: true,
+      color: ["rgb(188, 56, 89)", "rgb(221, 186, 197)"],
+      splitNumber: 24
+    },
+    toolbox: {
+      show: true,
+      orient: "vertical",
+      x: "right",
+      y: "bottom",
+      feature: {
+        mark: {
+          show: true
+        },
+        dataView: {
+          show: true,
+          readOnly: false
+        },
+        restore: {
+          show: true
+        },
+        saveAsImage: {
+          show: true
+        }
+      }
+    },
+    roamController: {
+      show: true,
+      x: "right",
+      mapTypeControl: {
+        china: true
+      }
+    },
+    series: [
+      {
+        name: "Á¥ØËÆ°Á°ÆËØä",
+        type: "map",
+        mapType: "china",
+        roam: false,
+        mapValueCalculation: "sum",
+        itemStyle: {
+          normal: {
+            label: {
+              show: true
+            }
+          },
+          emphasis: {
+            label: {
+              show: true
+            }
+          }
+        },
+        data: [
+          {
+            value: 64786,
+            name: "ÊπñÂåó"
+          },
+          {
+            value: 1347,
+            name: "Âπø‰∏ú"
+          },
+          {
+            value: 1271,
+            name: "Ê≤≥Âçó"
+          },
+          {
+            value: 1205,
+            name: "ÊµôÊ±ü"
+          },
+          {
+            value: 1016,
+            name: "ÊπñÂçó"
+          },
+          {
+            value: 989,
+            name: "ÂÆâÂæΩ"
+          },
+          {
+            value: 934,
+            name: "Ê±üË•ø"
+          },
+          {
+            value: 754,
+            name: "Â±±‰∏ú"
+          },
+          {
+            value: 631,
+            name: "Ê±üËãè"
+          },
+          {
+            value: 576,
+            name: "ÈáçÂ∫Ü"
+          },
+          {
+            value: 529,
+            name: "ÂõõÂ∑ù"
+          },
+          {
+            value: 480,
+            name: "ÈªëÈæôÊ±ü"
+          },
+          {
+            value: 400,
+            name: "Âåó‰∫¨"
+          },
+          {
+            value: 336,
+            name: "‰∏äÊµ∑"
+          },
+          {
+            value: 311,
+            name: "Ê≤≥Âåó"
+          },
+          {
+            value: 294,
+            name: "Á¶èÂª∫"
+          },
+          {
+            value: 252,
+            name: "ÂπøË•ø"
+          },
+          {
+            value: 245,
+            name: "ÈôïË•ø"
+          },
+          {
+            value: 174,
+            name: "‰∫ëÂçó"
+          },
+          {
+            value: 168,
+            name: "Êµ∑Âçó"
+          },
+          {
+            value: 146,
+            name: "Ë¥µÂ∑û"
+          },
+          {
+            value: 135,
+            name: "Â§©Ê¥•"
+          },
+          {
+            value: 133,
+            name: "Â±±Ë•ø"
+          },
+          {
+            value: 121,
+            name: "ËæΩÂÆÅ"
+          },
+          {
+            value: 93,
+            name: "ÂêâÊûó"
+          },
+          {
+            value: 91,
+            name: "ÁîòËÇÉ"
+          },
+          {
+            value: 81,
+            name: "È¶ôÊ∏Ø"
+          },
+          {
+            value: 76,
+            name: "Êñ∞ÁñÜ"
+          },
+          {
+            value: 75,
+            name: "ÂÜÖËíôÂè§"
+          },
+          {
+            value: 71,
+            name: "ÂÆÅÂ§è"
+          },
+          {
+            value: 30,
+            name: "Âè∞Êπæ"
+          },
+          {
+            value: 18,
+            name: "ÈùíÊµ∑"
+          },
+          {
+            value: 10,
+            name: "Êæ≥Èó®"
+          },
+          {
+            value: 1,
+            name: "Ë•øËóè"
+          }
+        ]
+      }
+    ]
+  };;
+  if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+  }
