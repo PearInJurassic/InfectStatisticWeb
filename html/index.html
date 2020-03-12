@@ -3,45 +3,89 @@
 	<head>
 		<title>首页</title>
 		<link href="../css/index.css" rel="stylesheet" charset="utf-8"/>
+        <script src="../js/echarts.min.js"></script>
+        <script src="../js/china.js"></script>
+        <script src="../js/index.js"></script>
 	</head>
 	<body>
 		<div id="title">某次疫情统计</div>
-		<div id="left">左</div>
-			<div id="icon1">
-				<a href="">
-					<image id="icon1_img" src="../images/全国趋势.svg"/>
-				</a>
-				<div id="icon1_text">全国趋势</div>
-			</div>
+		<div id="left"></div>
+
+        <div id="icon1">
+			<a href="">
+				<image id="icon1_img" src="../images/全国趋势.svg"/>
+			</a>
+			<div id="icon1_text">全国趋势</div>
+		</div>
+			
 				
-			<div id="icon2">
-				<a href="">
-					<image id="icon2_img" src="../images/同行查询.svg"/>
-				</a>
-				<div id="icon2_text">全国趋势</div>
-			</div>
+		<div id="icon2">
+			<a href="">
+				<image id="icon2_img" src="../images/同行查询.svg"/>
+			</a>
+			<div id="icon2_text">全国趋势</div>
+		</div>
 				
-			<div id="icon3">
-				<a href="">
-					<image id="icon3_img" src="../images/谣言粉碎.svg"/>
-				</a>
-				<div id="icon3_text">全国趋势</div>
-			</div>
+		<div id="icon3">
+			<a href="">
+				<image id="icon3_img" src="../images/谣言粉碎.svg"/>
+			</a>
+			<div id="icon3_text">全国趋势</div>
+		</div>
 				
-			<div id="icon4">
-				<a href="">
-					<image id="icon4_img" src="../images/科普知识.svg"/>
-				</a>
-				<div id="icon4_text">全国趋势</div>
-			</div>
+		<div id="icon4">
+			<a href="">
+				<image id="icon4_img" src="../images/科普知识.svg"/>
+			</a>
+			<div id="icon4_text">全国趋势</div>
+		</div>
 				
-			<div id="icon5">
-				<a href="">
-					<image id="icon5_img" src="../images/医院救治.svg"/>
-				</a>
-				<div id="icon5_text">全国趋势</div>
-			</div>
+		<div id="icon5">
+			<a href="">
+				<image id="icon5_img" src="../images/医院救治.svg"/>
+			</a>
+			<div id="icon5_text">全国趋势</div>
+		</div>
 				
-		<div id="right">右</div>
+		<div id="right"></div>
+
+        <div id="time">更新于 2020.3.12</div>
+
+        <!--疫情数据-->
+        <div id="num">
+            <div class="type" id="ip">感染患者</div>
+            <div class="type" id="sp">疑似患者</div>
+            <div class="type" id="cure">治愈</div>
+            <div class="type" id="dead">死亡</div>
+            <div class="num" id="ip_num">123</div>
+            <div class="num" id="sp_num">132</div>
+            <div class="num" id="cure_num">321</div>
+            <div class="num" id="dead_num">312</div>
+            <div class="increase" id="ip_incrs">+123</div>
+            <div class="increase" id="sp_incrs">+132</div>
+            <div class="increase" id="cure_incrs">-321</div>
+            <div class="increase" id="dead_incrs">-312</div>
+        </div>
+
+        <!--中国地图-->
+        <div id="map"></div>
+
+        <!--全国趋势-->
+        <a href="">
+            <div id="ctry_ip_trend">全国新增<br/>感染患者趋势</div>
+        </a>
+        
+        <a href="">
+            <div id="ctry_sp_trend" action="">全国新增疑似患者趋势</div>
+        </a>
+
+        <a href="">
+            <div id="ctry_cure_trend" action="">全国新增治愈趋势</div>
+        </a>
+
+        <a href="">
+            <div id="ctry_dead_trend" action="">全国新增死亡趋势</div>
+        </a>
+        
 	</body>
 </html>
