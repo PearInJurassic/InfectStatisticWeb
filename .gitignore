@@ -21,7 +21,7 @@
 
 #Folder
 /.vs/
-
+/.idea/
 # IntelliJ project files
 *.gitignore
 
