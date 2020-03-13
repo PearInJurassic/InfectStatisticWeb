@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<title>首页</title>
@@ -6,13 +6,17 @@
 		<link href="../css/index.css" rel="stylesheet" charset="utf-8"/>
         <script src="../js/echarts.min.js"></script>
         <script src="../js/china.js"></script>
+        <script src="../js/jquery-1.7.1.min.js"></script>
 	</head>
 	<body>
 		<div id="title">某次疫情统计</div>
-		<div id="left"></div>
+        <a href="index.html">
+            <div id="index">首页</div>
+        </a>
+        <div id="left"></div>
 
         <div id="icon1">
-			<a href="">
+			<a href="trend.html">
 				<image id="icon1_img" src="../images/全国趋势.svg"/>
 			</a>
 			<div id="icon1_text">全国趋势</div>
@@ -70,23 +74,7 @@
         <!--中国地图-->
         <div id="map"></div>
         <script src="../js/index.js"></script>
+       
 
-        <!--新增趋势-->
-        <a href="">
-            <div id="ctry_ip_trend">全国新增<br/>感染患者趋势</div>
-        </a>
-        
-        <a href="">
-            <div id="ctry_sp_trend" action="">全国新增<br/>疑似患者趋势</div>
-        </a>
-
-        <a href="">
-            <div id="ctry_cure_trend" action="">全国新增<br/>治愈趋势</div>
-        </a>
-
-        <a href="">
-            <div id="ctry_dead_trend" action="">全国新增<br/>死亡趋势</div>
-        </a>
-        
 	</body>
 </html>
