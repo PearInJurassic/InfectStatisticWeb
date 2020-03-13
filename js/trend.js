@@ -1,71 +1,41 @@
 window.onload = function () {
-	var url = "../json/areaAnHui.json";
+	var url = "../json/history.json";
 	var request = new XMLHttpRequest();
 	request.open("get", url);
 	request.send(null);
 	request.onload = function () {
 		if (request.status == 200) {
 			var json = JSON.parse(request.responseText);
-			var i,j;
+			var i;
 			var dateList = new Array();
 			var ip_num = new Array();
+			var ip_incrs = new Array();
 			var sp_num = new Array();
+			var sp_incrs = new Array();
 			var cure_num = new Array();
+			var cure_incrs = new Array();
 			var dead_num = new Array();
-			var date = new Date(json.results[0].updateTime);
-			var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-			var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-			var temp;
-			dateList[0] = date.getFullYear() + "-" + month + "-" + currentDate;
-			for(i = 0,j = 1; i < json.results.length; i++) {
-				date = new Date(json.results[i].updateTime);
-				month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-				currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-				temp = date.getFullYear() + "-" + month + "-" + currentDate;
-				if(temp != dateList[j-1]){
-					dateList[j] = date.getFullYear() + "-" + month + "-" + currentDate;
-					ip_num[j] = json.results[i].confirmedCount;
-					sp_num[j] = json.results[i].suspectedCount;
-					cure_num[j] = json.results[i].curedCount;
-					dead_num[j] = json.results[i].deadCount;
-					j++;
-				} else {
-					ip_num[j-1] = json.results[i].confirmedCount;
-					sp_num[j-1] = json.results[i].suspectedCount;
-					cure_num[j-1] = json.results[i].curedCount;
-					dead_num[j-1] = json.results[i].deadCount;
-				}
+			var dead_incrs = new Array();
+			for(i = 0; i < json.results.length; i++) {
+				dateList[i] = json.results[i].ds.split("\/")[2] + "-"
+							+ json.results[i].ds.split("\/")[1] + "-"
+							+ json.results[i].ds.split("\/")[0];
+				ip_num[i] = json.results[i].confirm;
+				ip_incrs[i] = json.results[i].confirm_add;
+				sp_num[i] = json.results[i].suspect;
+				sp_incrs[i] = json.results[i].suspect_add;
+				cure_num[i] = json.results[i].heal;
+				cure_incrs[i] = json.results[i].heal_add;
+				dead_num[i] = json.results[i].dead;
+				dead_incrs[i] = json.results[i].dead_add;
 			}
+			console.log(dateList);
 			var dom = document.getElementById("trend");
 			var myChart = echarts.init(dom);
 
-			var ip_incrs = new Array();
-			ip_incrs[0] = 0;
-			for(var i = 1; i < ip_num.length; i++){
-				ip_incrs[i] = ip_num[i] - ip_num[i-1];
-			}
-
-			var sp_incrs = new Array();
-			sp_incrs[0] = 0;
-			for(var i = 1; i < sp_num.length; i++){
-				sp_incrs[i] = sp_num[i] - sp_num[i-1];
-			}
-
-			var cure_incrs = new Array();
-			cure_incrs[0] = 0;
-			for(var i = 1; i < cure_num.length; i++){
-				cure_incrs[i] = cure_num[i] - cure_num[i-1];
-			}
-
-			var dead_incrs = new Array();
-			dead_incrs[0] = 0;
-			for(var i = 1; i < ip_num.length; i++){
-				dead_incrs[i] = dead_num[i] - dead_num[i-1];
-			}
-
 			option = {
 				title: {
-					text: "新增趋势",
+					text: "全国新增趋势",
 					left: 'center',
 				},
 				tooltip: {

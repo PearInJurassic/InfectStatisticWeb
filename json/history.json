@@ -3,79 +3,79 @@
     {
       "ds": "13/1/2020",
       "confirm": "41",
-      "confirm_add": "",
+      "confirm_add": "0",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "0",
-      "heal_add": "",
+      "heal_add": "0",
       "dead": "1",
-      "dead_add": ""
+      "dead_add": "0"
     },
     {
       "ds": "14/1/2020",
       "confirm": "41",
-      "confirm_add": "",
+      "confirm_add": "0",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "0",
-      "heal_add": "",
+      "heal_add": "0",
       "dead": "1",
-      "dead_add": ""
+      "dead_add": "0"
     },
     {
       "ds": "15/1/2020",
       "confirm": "41",
-      "confirm_add": "",
+      "confirm_add": "0",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "5",
-      "heal_add": "",
+      "heal_add": "5",
       "dead": "2",
-      "dead_add": ""
+      "dead_add": "1"
     },
     {
       "ds": "16/1/2020",
       "confirm": "45",
-      "confirm_add": "",
+      "confirm_add": "4",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "8",
-      "heal_add": "",
+      "heal_add": "3",
       "dead": "2",
-      "dead_add": ""
+      "dead_add": "1"
     },
     {
       "ds": "17/1/2020",
       "confirm": "62",
-      "confirm_add": "",
+      "confirm_add": "17",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "12",
-      "heal_add": "",
+      "heal_add": "4",
       "dead": "2",
-      "dead_add": ""
+      "dead_add": "0"
     },
     {
       "ds": "18/1/2020",
       "confirm": "198",
-      "confirm_add": "",
+      "confirm_add": "136",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "17",
-      "heal_add": "",
+      "heal_add": "5",
       "dead": "3",
-      "dead_add": ""
+      "dead_add": "1"
     },
     {
       "ds": "19/1/2020",
       "confirm": "275",
-      "confirm_add": "",
+      "confirm_add": "77",
       "suspect": "0",
-      "suspect_add": "",
+      "suspect_add": "0",
       "heal": "18",
-      "heal_add": "",
+      "heal_add": "1",
       "dead": "4",
-      "dead_add": ""
+      "dead_add": "1"
     },
     {
       "ds": "20/1/2020",
