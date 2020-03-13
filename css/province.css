@@ -51,6 +51,26 @@
     border-bottom-right-radius: 10px;
 }
 
+#date {
+    background: #ffffff;
+    color: #000000;
+    position: absolute;
+    height: 5%;
+    width: 10%;
+    top: 23%;
+    left: 65%;
+}
+
+#confirm {
+    background: #ffffff;
+    color: #000000;
+    position: absolute;
+    height: 5%;
+    width: 5%;
+    top: 23%;
+    left: 77%;
+}
+
 #icon1 {
     position: absolute;
     height: 7%;
