@@ -1,4 +1,4 @@
-#title {
+ï»¿#title {
     background: #ffffff;
     color: #000000;
     position: absolute;
@@ -20,7 +20,7 @@
     width: 15%;
     top: 10%;
     left: 15%;
-    /*Îª×óÉÏ½Ç¡¢×óÏÂ½ÇÉèÖÃ»¡¶ÈÖµ*/
+    /*ä¸ºå·¦ä¸Šè§’ã€å·¦ä¸‹è§’è®¾ç½®å¼§åº¦å€¼*/
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -33,7 +33,7 @@
     width: 55%;
     top: 10%;
     left: 30%;
-    /*ÎªÓÒÉÏ½Ç¡¢ÓÒÏÂ½ÇÉèÖÃ»¡¶ÈÖµ*/
+    /*ä¸ºå³ä¸Šè§’ã€å³ä¸‹è§’è®¾ç½®å¼§åº¦å€¼*/
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -95,11 +95,34 @@
     border-radius: 50%;
 }
 
+#back {
+    background: #5f5c5c;
+    color: #000000;
+    position: absolute;
+    height: 4.5%;
+    width: 3.5%;
+    top: 13%;
+    left: 34%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+#province {
+    position: absolute;
+    height: 7%;
+    width: 50%;
+    top: 18.5%;
+    left: 34%;
+    font-size: 18px;
+}
+
 #time {
     position: absolute;
     height: 7%;
     width: 50%;
-    top: 18%;
+    top: 23%;
     left: 34%;
     font-size: 18px;
 }
@@ -109,7 +132,7 @@
     position: absolute;
     height: 20%;
     width: 50%;
-    top: 25%;
+    top: 30%;
     left: 33%;
     border-radius: 25px;
 }
@@ -174,7 +197,7 @@
     color: #808080;
 }
 
-#map {
+#trend {
     background: #ffffff;
     position: absolute;
     height: 85%;
