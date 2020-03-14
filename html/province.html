@@ -1,11 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>全国新增趋势图</title>
+    <title>趋势图</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="../css/trend.css" rel="stylesheet" charset="utf-8" />
+    <link href="../css/province.css" rel="stylesheet" charset="utf-8" />
     <script src="../js/echarts.min.js"></script>
-    <script src="../js/china.js"></script>
     <script src="../js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
@@ -55,19 +54,19 @@
 
     <div id="right"></div>
 
-    <!--设置日期选择框，可选最早日期为2020-01-25，最晚为2020-03-12-->
-    <input type="date" required min="2020-01-14" max="2020-03-12" id="date">
-    <input type="button" id="confirm" value="确认">
-
     <!--点击该处返回主页-->
     <a href="index.html">
         <div id="back">返回</div>
     </a>
 
 
-    <div id="province_name">全国</div>
+    <div id="province_name"></div>
 
     <div id="time">更新于 2020-03-12</div>
+
+    <!--设置日期选择框，可选最早日期为2020-01-25，最晚为2020-03-12-->
+    <input type="date" required min="2020-01-25" max="2020-03-12" id="date">
+    <input type="button" id="confirm" value="确认">
 
     <!--疫情统计-->
     <div id="num">
@@ -80,7 +79,7 @@
 			sp_num：现有疑似
 			cure_num：累计治愈
 			dead_num：累计死亡
-			ip_incrs：（较昨日）新增确诊（较昨日）
+			ip_incrs：（较昨日）新增确诊
 			sp_incrs：（较昨日）新增疑似
 			cure_incrs：（较昨日）新增治愈
 			dead_incrs：（较昨日）新增死亡
@@ -93,12 +92,11 @@
         <div class="increase" id="sp_incrs"></div>
         <div class="increase" id="cure_incrs"></div>
         <div class="increase" id="dead_incrs"></div>
-
     </div>
 
     <!--趋势图-->
-    <div id="trend"></div>
-    <script src="../js/trend.js"></script>
+    <div id="province"></div>
+    <script src="../js/province.js"></script>
 
 </body>
 </html>

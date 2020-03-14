@@ -26,27 +26,30 @@
 }
 
 #left {
-    background: #808080;
+    background: #99bbff;
     color: #ffffff;
     position: absolute;
     height: 135%;
     width: 15%;
     top: 10%;
     left: 15%;
-    /*Ϊ���Ͻǡ����½����û���ֵ*/
+    /*璁剧疆杈规*/
+    border: 1px solid #000000;
+    /*涓哄乏涓婅銆佸乏涓嬭璁剧疆寮у害鍊�*/
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
 #right {
-    background: #ff0000;
-    color: #ffffff;
+    background: #ffffff;
     position: absolute;
     height: 135%;
     width: 55%;
     top: 10%;
     left: 30%;
-    /*Ϊ���Ͻǡ����½����û���ֵ*/
+    /*璁剧疆杈规*/
+    border: 1px solid #000000;
+    /*涓哄彸涓婅銆佸彸涓嬭璁剧疆寮у害鍊�*/
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -124,7 +127,12 @@
     width: 50%;
     top: 25%;
     left: 33%;
+
+    /*璁剧疆杈规鍦嗚*/
     border-radius: 25px;
+    /*璁剧疆杈规*/
+    border: 1px solid #000000;
+
 }
 
 .type {
@@ -188,10 +196,14 @@
 }
 
 #map {
-    background: #ffffff;
+
+    background: #eeeeee;
     position: absolute;
     height: 85%;
     width: 50%;
     top: 55%;
     left: 33%;
+
+    /*璁剧疆杈规*/
+    border: 1px solid #000000;
 }

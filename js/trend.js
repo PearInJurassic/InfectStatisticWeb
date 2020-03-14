@@ -1,127 +1,309 @@
-var dom = document.getElementById("trend");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
+window.onload = function () {
+	var url = "../json/history.json"; //本地json文件位置
+	var request = new XMLHttpRequest(); //发送请求
+	request.open("get", url);
+	request.send(null);
+	request.onload = function () {
+		if (request.status == 200) { //请求成功
+			var json = JSON.parse(request.responseText);
+			var i;
+			var dateList = new Array();   //时间
+			var ip_num = new Array();     //累计确诊
+			var ip_incrs = new Array();   //（较昨日）新增确诊
+			var sp_num = new Array();     //现有疑似
+			var sp_incrs = new Array();   //（较昨日）新增疑似
+			var cure_num = new Array();   //累计治愈
+			var cure_incrs = new Array(); //（较昨日）新增治愈
+			var dead_num = new Array();   //累计死亡
+			var dead_incrs = new Array(); //（较昨日）新增死亡
+			for(i = 0; i < json.results.length; i++) {
+				dateList[i] = json.results[i].ds.split("\/")[2] + "-"; //时间字符串设置为：年-
+				if(json.results[i].ds.split("\/")[1].length == 1) //如果月只有一位数
+					dateList[i]	+= "0"+ json.results[i].ds.split("\/")[1] + "-"; //时间字符串设置为：年-月-
+				else
+					dateList[i]	+= json.results[i].ds.split("\/")[1] + "-";
+				if(json.results[i].ds.split("\/")[0].length == 1) //如果日只有一位数
+					dateList[i]	+= "0"+ json.results[i].ds.split("\/")[0]; //时间字符串设置为：年-月-日
+				else
+					dateList[i]	+= json.results[i].ds.split("\/")[0];
+				ip_num[i] = json.results[i].confirm;
+				ip_incrs[i] = json.results[i].confirm_add;
+				sp_num[i] = json.results[i].suspect;
+				sp_incrs[i] = json.results[i].suspect_add;
+				cure_num[i] = json.results[i].heal;
+				cure_incrs[i] = json.results[i].heal_add;
+				dead_num[i] = json.results[i].dead;
+				dead_incrs[i] = json.results[i].dead_add;
+			}
+			var dom = document.getElementById("trend");
+			var myChart = echarts.init(dom);
 
+			option = {
+				title: {
+					text: "全国新增趋势",
+					left: 'center',
+				},
+				tooltip: {
+					trigger: 'axis',
+				},
+				legend: { //图例
+					name: ['新增感染','新增疑似','新增治愈','新增死亡'],
+					right: 'right',
+				},
+				xAxis: {
+					data: dateList,
+					gridIndex: 1
+				},
+				yAxis: {
+					splitLine: {show: false},
+					gridIndex: 1
+				},
+				grid: [{
+					bottom: '60%'
+				}, {
+					top: '20%'
+				}],
+				series: [{
+					name: '新增感染',
+					type: 'line',
+					showSymbol: false,
+					data: ip_incrs,
+					itemStyle: {
+						normal: {
+							color:'#ff0000',
+							lineStyle:{
+								color:'#ff0000'
+							}
+						}
+					},
+					smooth: true
+				}, {
+					name: '新增疑似',
+					type: 'line',
+					showSymbol: false,
+					data: sp_incrs,
+					itemStyle: {
+						normal: {
+							color:'#0094ff',
+							lineStyle:{
+								color:'#0094ff'
+							}
+						}
+					},
+					smooth: true
+				}, {
+					name: '新增治愈',
+					type: 'line',
+					showSymbol: false,
+					data: cure_incrs,
+					itemStyle: {
+						normal: {
+							color:'#00ff21',
+							lineStyle:{
+								color:'#00ff21'
+							}
+						}
+					},
+					smooth: true
+				}, {
+					name: '新增死亡',
+					type: 'line',
+					showSymbol: false,
+					data: dead_incrs,
+					itemStyle: {
+						normal: {
+							color:'#808080',
+							lineStyle:{
+								color:'#808080'
+							}
+						}
+					},
+					smooth:true
+				}]
+			};
+			if (option && typeof option === "object") {
+				myChart.setOption(option, true);
+			}
 
-data = [["2020-01-20",77,27,0,0],["2020-01-21",149,53,0,3],["2020-01-22",131,257,0,8],
-		["2020-01-23",259,680,6,8],["2020-01-24",444,1118,3,16],["2020-01-25",688,1309,11,15],
-		["2020-01-26",769,3806,2,24],["2020-01-27",1771,2077,9,26],["2020-01-28",1459,3248,43,26]/*,
-		["2020-01-29",1737],["2020-01-30",1982],["2020-01-31",2102],
-		["2020-02-01",2590],["2020-02-01",2590],["2020-02-02",2829],
-		["2020-02-03",3235],["2020-02-04",3893],["2020-02-05",3697],
-		["2020-02-06",3143],["2020-02-07",3401],["2020-02-08",2656],
-		["2020-02-09",3062],["2020-02-10",2484],["2020-02-11",2022],
-		["2020-02-12",15153],["2020-02-13",5093],["2020-02-14",2644],
-		["2020-02-15",2009],["2020-02-16",2051],["2020-02-17",1891],
-		["2020-02-18",1751],["2020-02-19",820],["2020-02-20",892],
-		["2020-02-21",399],["2020-02-22",649],["2020-02-23",416],
-		["2020-02-24",517],["2020-02-25",411],["2020-02-26",440],
-		["2020-02-27",329],["2020-02-28",430],["2020-02-29",579],
-		["2020-03-01",206],["2020-03-02",128],["2020-03-03",120],
-		["2020-03-04",143],["2020-03-05",145],["2020-03-06",103],
-		["2020-03-07",46],["2020-03-08",45],["2020-03-09",20],
-		["2020-03-10",31],["2020-03-11",25],["2020-03-12",11]*/];
-
-var dateList = data.map(function (item) {
-    return item[0];
-});
-var ipValueList = data.map(function (item) {
-    return item[1];
-});
-var spValueList = data.map(function (item) {
-    return item[2];
-});
-var cureValueList = data.map(function (item) {
-    return item[3];
-});
-var deadValueList = data.map(function (item) {
-    return item[4];
-});
-
-option = {
-	title: {
-		text: "全国趋势",
-		left: 'center',
-	},
-    tooltip: {
-        trigger: 'axis',
-    },
-	legend: {
-		name: ['新增感染','新增疑似','新增治愈','新增死亡'],
-		right: 'right',
-	},
-    xAxis: {
-        data: dateList,
-        gridIndex: 1
-    },
-    yAxis: {
-        splitLine: {show: false},
-        gridIndex: 1
-    },
-    grid: [{
-        bottom: '60%'
-    }, {
-        top: '20%'
-    }],
-    series: [{
-		name: '新增感染',
-        type: 'line',
-        showSymbol: false,
-        data: ipValueList,
-		itemStyle: {  
-				normal: {  
-					color:'#ff0000',
-					lineStyle:{  
-						color:'#ff0000'  
-					}  
-				}  
-		},  
-		smooth: true
-    }, {
-		name: '新增疑似',
-        type: 'line',
-        showSymbol: false,
-        data: spValueList,
-		itemStyle: {  
-				normal: {  
-					color:'#0094ff',
-					lineStyle:{  
-						color:'#0094ff'  
-					}  
-				}  
-			},  
-		smooth: true
-	}, {
-		name: '新增治愈',
-        type: 'line',
-        showSymbol: false,
-        data: cureValueList,
-		itemStyle: {  
-				normal: {  
-					color:'#00ff21',
-					lineStyle:{  
-						color:'#00ff21'  
-					}  
-				}  
-		},  
-		smooth: true
-	}, {
-		name: '新增死亡',
-        type: 'line',
-        showSymbol: false,
-        data: deadValueList,
-		itemStyle: {  
-				normal: {  
-					color:'#808080',
-					lineStyle:{  
-						color:'#808080'  
-					}  
-				}  
-		},  
-		smooth:true
-	}]
-};
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
+			//设置页面上各类型人数和新增人数的显示
+			document.getElementById("ip_num").innerHTML = ip_num[ip_num.length-1];
+			document.getElementById("sp_num").innerHTML = sp_num[sp_num.length-1];
+			document.getElementById("cure_num").innerHTML = cure_num[cure_num.length-1];
+			document.getElementById("dead_num").innerHTML = dead_num[dead_num.length-1];
+			var ip_increase = ip_num[ip_num.length-1] - ip_num[ip_num.length-2];
+			var sp_increase = sp_num[sp_num.length-1]- sp_num[sp_num.length-2];
+			var cure_increase = cure_num[cure_num.length-1] - cure_num[cure_num.length-2];
+			var dead_increase = dead_num[dead_num.length-1] - dead_num[dead_num.length-2];
+			//需要判断正负，显示数字前的符号
+			document.getElementById("ip_incrs").innerHTML = "较昨日" +
+				(ip_increase > 0 ? "+" : "") + ip_increase;
+			document.getElementById("sp_incrs").innerHTML = "较昨日" +
+				(sp_increase > 0 ? "+" : "") + sp_increase;
+			document.getElementById("cure_incrs").innerHTML = "较昨日" +
+				(cure_increase > 0 ? "+" : "") + cure_increase;
+			document.getElementById("dead_incrs").innerHTML = "较昨日" +
+				(dead_increase > 0 ? "+" : "") + dead_increase;
+		}
+	}
 }
+
+$(document).ready(function(){
+	$("#confirm").click(function () {
+
+		var date_limit = document.getElementById("date").value;
+		var url = "../json/history.json";
+		var request = new XMLHttpRequest();
+		request.open("get", url);
+		request.send(null);
+		request.onload = function () {
+			if (request.status == 200) {
+				var json = JSON.parse(request.responseText);
+				var i;
+				var dateList1 = new Array();
+				var ip_num = new Array();
+				var ip_incrs = new Array();
+				var sp_num = new Array();
+				var sp_incrs = new Array();
+				var cure_num = new Array();
+				var cure_incrs = new Array();
+				var dead_num = new Array();
+				var dead_incrs = new Array();
+
+				for(i = 0; i < json.results.length; i++) {
+					var temp = json.results[i].ds.split("\/")[2] + "-";
+					if(json.results[i].ds.split("\/")[1].length == 1)
+						temp += "0"+ json.results[i].ds.split("\/")[1] + "-";
+					else
+						temp += json.results[i].ds.split("\/")[1] + "-";
+					if(json.results[i].ds.split("\/")[0].length == 1)
+						temp += "0"+ json.results[i].ds.split("\/")[0];
+					else
+						temp += json.results[i].ds.split("\/")[0];
+					if(date_limit < temp) { //如果该日期超过选择日期
+						break;
+					}
+					dateList1[i] = temp;
+					ip_num[i] = json.results[i].confirm;
+					ip_incrs[i] = json.results[i].confirm_add;
+					sp_num[i] = json.results[i].suspect;
+					sp_incrs[i] = json.results[i].suspect_add;
+					cure_num[i] = json.results[i].heal;
+					cure_incrs[i] = json.results[i].heal_add;
+					dead_num[i] = json.results[i].dead;
+					dead_incrs[i] = json.results[i].dead_add;
+				}
+				var dom = document.getElementById("trend");
+				var myChart = echarts.init(dom);
+
+				option = {
+					title: {
+						text: "全国新增趋势",
+						left: 'center',
+					},
+					tooltip: {
+						trigger: 'axis',
+					},
+					legend: {
+						name: ['新增感染','新增疑似','新增治愈','新增死亡'],
+						right: 'right',
+					},
+					xAxis: {
+						data: dateList1,
+						gridIndex: 1
+					},
+					yAxis: {
+						splitLine: {show: false},
+						gridIndex: 1
+					},
+					grid: [{
+						bottom: '60%'
+					}, {
+						top: '20%'
+					}],
+					series: [{
+						name: '新增感染',
+						type: 'line',
+						showSymbol: false,
+						data: ip_incrs,
+						itemStyle: {
+							normal: {
+								color:'#ff0000',
+								lineStyle:{
+									color:'#ff0000'
+								}
+							}
+						},
+						smooth: true
+					}, {
+						name: '新增疑似',
+						type: 'line',
+						showSymbol: false,
+						data: sp_incrs,
+						itemStyle: {
+							normal: {
+								color:'#0094ff',
+								lineStyle:{
+									color:'#0094ff'
+								}
+							}
+						},
+						smooth: true
+					}, {
+						name: '新增治愈',
+						type: 'line',
+						showSymbol: false,
+						data: cure_incrs,
+						itemStyle: {
+							normal: {
+								color:'#00ff21',
+								lineStyle:{
+									color:'#00ff21'
+								}
+							}
+						},
+						smooth: true
+					}, {
+						name: '新增死亡',
+						type: 'line',
+						showSymbol: false,
+						data: dead_incrs,
+						itemStyle: {
+							normal: {
+								color:'#808080',
+								lineStyle:{
+									color:'#808080'
+								}
+							}
+						},
+						smooth:true
+					}]
+				};
+				if (option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+				var length = dateList1.length; //使用刚才保存时间的数组的长度
+				document.getElementById("ip_num").innerHTML = ip_num[dateList1.length-1];
+				document.getElementById("sp_num").innerHTML = sp_num[dateList1.length-1];
+				document.getElementById("cure_num").innerHTML = cure_num[dateList1.length-1];
+				document.getElementById("dead_num").innerHTML = dead_num[dateList1.length-1];
+				//用选择的时间的人数减前一天的人数
+				var ip_increase = ip_num[ip_num.length-1] - ip_num[ip_num.length-2];
+				var sp_increase = sp_num[sp_num.length-1]- sp_num[sp_num.length-2];
+				var cure_increase = cure_num[cure_num.length-1] - cure_num[cure_num.length-2];
+				var dead_increase = dead_num[dead_num.length-1] - dead_num[dead_num.length-2];
+				document.getElementById("ip_incrs").innerHTML = "较昨日" +
+					(ip_increase > 0 ? "+" : "") + ip_increase;
+				document.getElementById("sp_incrs").innerHTML = "较昨日" +
+					(sp_increase > 0 ? "+" : "") + sp_increase;
+				document.getElementById("cure_incrs").innerHTML = "较昨日" +
+					(cure_increase > 0 ? "+" : "") + cure_increase;
+				document.getElementById("dead_incrs").innerHTML = "较昨日" +
+					(dead_increase > 0 ? "+" : "") + dead_increase;
+			}
+		}
+	})
+})
+
+
+
+
