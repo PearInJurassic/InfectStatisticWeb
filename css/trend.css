@@ -40,6 +40,7 @@
 }
 
 #right {
+
     background: #ffffff;
     position: absolute;
     height: 135%;
@@ -52,6 +53,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
 
 #date {
     background: #ffffff;
@@ -147,6 +149,7 @@
 }
 
 #province_name {
+
     position: absolute;
     height: 7%;
     width: 50%;
@@ -247,3 +250,4 @@
     /*设置边框*/
     border: 1px solid #000000;
 }
+

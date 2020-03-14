@@ -33,9 +33,9 @@
     width: 15%;
     top: 10%;
     left: 15%;
-    /*设置边框*/
+    /*璁剧疆杈规*/
     border: 1px solid #000000;
-    /*为左上角、左下角设置弧度值*/
+    /*涓哄乏涓婅銆佸乏涓嬭璁剧疆寮у害鍊�*/
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -47,9 +47,9 @@
     width: 55%;
     top: 10%;
     left: 30%;
-    /*设置边框*/
+    /*璁剧疆杈规*/
     border: 1px solid #000000;
-    /*为右上角、右下角设置弧度值*/
+    /*涓哄彸涓婅銆佸彸涓嬭璁剧疆寮у害鍊�*/
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -127,10 +127,12 @@
     width: 50%;
     top: 25%;
     left: 33%;
-    /*设置边框圆角*/
+
+    /*璁剧疆杈规鍦嗚*/
     border-radius: 25px;
-    /*设置边框*/
+    /*璁剧疆杈规*/
     border: 1px solid #000000;
+
 }
 
 .type {
@@ -194,12 +196,14 @@
 }
 
 #map {
+
     background: #eeeeee;
     position: absolute;
     height: 85%;
     width: 50%;
     top: 55%;
     left: 33%;
-    /*设置边框*/
+
+    /*璁剧疆杈规*/
     border: 1px solid #000000;
 }

@@ -302,9 +302,8 @@ $(document).ready(function(){
 			}
 		}
 	})
-
-
 })
+
 
 
 
