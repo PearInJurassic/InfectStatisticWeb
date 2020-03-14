@@ -17,7 +17,7 @@ function fuc() {
             list = data["results"];
         },
         error:function () {
-            alert(读取失败)
+            alert("读取失败")
         }
     })
     return list
@@ -249,5 +249,5 @@ if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }
 myChart.on('click',function (param) {
-    window.location.href="../html/trend.html";
+    window.location.href="../html/trend.html?" + param.name ;
 })
