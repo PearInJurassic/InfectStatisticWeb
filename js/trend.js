@@ -128,10 +128,10 @@ window.onload = function () {
 			document.getElementById("sp_num").innerHTML = sp_num[sp_num.length-1];
 			document.getElementById("cure_num").innerHTML = cure_num[cure_num.length-1];
 			document.getElementById("dead_num").innerHTML = dead_num[dead_num.length-1];
-			var ip_increase = ip_incrs[ip_incrs.length-1] - ip_incrs[ip_incrs.length-2];
-			var sp_increase = sp_incrs[sp_incrs.length-1]- sp_incrs[sp_incrs.length-2];
-			var cure_increase = cure_incrs[cure_incrs.length-1] - cure_incrs[cure_incrs.length-2];
-			var dead_increase = dead_incrs[dead_incrs.length-1] - dead_incrs[dead_incrs.length-2];
+			var ip_increase = ip_num[ip_num.length-1] - ip_num[ip_num.length-2];
+			var sp_increase = sp_num[sp_num.length-1]- sp_num[sp_num.length-2];
+			var cure_increase = cure_num[cure_num.length-1] - cure_num[cure_num.length-2];
+			var dead_increase = dead_num[dead_num.length-1] - dead_num[dead_num.length-2];
 			document.getElementById("ip_incrs").innerHTML = "较昨日" +
 				(ip_increase > 0 ? "+" : "") + ip_increase;
 			document.getElementById("sp_incrs").innerHTML = "较昨日" +
@@ -283,10 +283,10 @@ $(document).ready(function(){
 				document.getElementById("sp_num").innerHTML = sp_num[dateList1.length-1];
 				document.getElementById("cure_num").innerHTML = cure_num[dateList1.length-1];
 				document.getElementById("dead_num").innerHTML = dead_num[dateList1.length-1];
-				var ip_increase = ip_incrs[dateList1.length-1] - ip_incrs[dateList1.length-2];
-				var sp_increase = sp_incrs[dateList1.length-1]- sp_incrs[dateList1.length-2];
-				var cure_increase = cure_incrs[dateList1.length-1] - cure_incrs[dateList1.length-2];
-				var dead_increase = dead_incrs[dateList1.length-1] - dead_incrs[dateList1.length-2];
+				var ip_increase = ip_num[ip_num.length-1] - ip_num[ip_num.length-2];
+				var sp_increase = sp_num[sp_num.length-1]- sp_num[sp_num.length-2];
+				var cure_increase = cure_num[cure_num.length-1] - cure_num[cure_num.length-2];
+				var dead_increase = dead_num[dead_num.length-1] - dead_num[dead_num.length-2];
 				document.getElementById("ip_incrs").innerHTML = "较昨日" +
 					(ip_increase > 0 ? "+" : "") + ip_increase;
 				document.getElementById("sp_incrs").innerHTML = "较昨日" +
