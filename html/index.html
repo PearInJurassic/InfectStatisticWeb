@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 	<head>
 		<title>首页</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -10,11 +10,13 @@
 	</head>
 	<body>
 		<div id="title">某次疫情统计</div>
+		<!--点击该处返回首页-->
         <a href="index.html">
             <div id="index">首页</div>
         </a>
         <div id="left"></div>
 
+		<!--点击该处跳转至全国趋势-->
         <div id="icon1">
 			<a href="trend.html">
 				<image id="icon1_img" src="../images/全国趋势.svg"/>
@@ -53,6 +55,7 @@
 				
 		<div id="right"></div>
 
+		<!--该处设置最新时间戳-->
         <div id="time"></div>
 
         <!--疫情统计-->
@@ -61,6 +64,16 @@
             <div class="type" id="sp">疑似患者</div>
             <div class="type" id="cure">治愈</div>
             <div class="type" id="dead">死亡</div>
+			<!--
+				ip_num：累计确诊
+				sp_num：现有疑似
+				cure_num：累计治愈
+				dead_num：累计死亡
+				ip_incrs：（较昨日）新增确诊（较昨日）
+				sp_incrs：（较昨日）新增疑似
+				cure_incrs：（较昨日）新增治愈
+				dead_incrs：（较昨日）新增死亡
+			-->
             <div class="num" id="ip_num"></div>
             <div class="num" id="sp_num"></div>
             <div class="num" id="cure_num"></div>

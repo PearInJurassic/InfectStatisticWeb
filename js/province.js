@@ -3,7 +3,7 @@ window.onload = function () {
     var province = decodeURI(string).replace("?","");
     var url;
 
-    switch (province) {
+    switch (province) { //根据得到的字符串，选择对应的json文件
         case "安徽":
             url = "../json/areaAnHui.json";
             break;
@@ -112,11 +112,14 @@ window.onload = function () {
         if (request.status == 200) {
             var json = JSON.parse(request.responseText);
             var i,j;
-            var dateList = new Array();
-            var ip_num = new Array();
-            var sp_num = new Array();
-            var cure_num = new Array();
-            var dead_num = new Array();
+            var dateList = new Array(); //时间
+            var ip_num = new Array();   //累计确诊
+            var sp_num = new Array();   //现有疑似
+            var cure_num = new Array(); //累计治愈
+            var dead_num = new Array(); //累计死亡
+            /*
+            将此类1545299299910时间格式转化为yyyy-mm-dd时间格式
+             */
             var date = new Date(json.results[0].updateTime);
             var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
             var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
@@ -127,7 +130,7 @@ window.onload = function () {
                 month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
                 currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
                 temp = date.getFullYear() + "-" + month + "-" + currentDate;
-                if(temp != dateList[j-1]){
+                if(temp != dateList[j-1]){ //如果该时间已经记录过
                     dateList[j] = date.getFullYear() + "-" + month + "-" + currentDate;
                     ip_num[j] = json.results[i].confirmedCount;
                     sp_num[j] = json.results[i].suspectedCount;
@@ -144,28 +147,28 @@ window.onload = function () {
             var dom = document.getElementById("province");
             var myChart = echarts.init(dom);
 
-            var ip_incrs = new Array();
+            var ip_incrs = new Array(); //（较昨日）新增确诊
             ip_incrs[0] = 0;
             for(var i = 1; i < ip_num.length; i++){
-                ip_incrs[i] = ip_num[i] - ip_num[i-1];
+                ip_incrs[i] = ip_num[i] - ip_num[i-1]; //今日-昨日
             }
 
-            var sp_incrs = new Array();
+            var sp_incrs = new Array(); //（较昨日）新增疑似
             sp_incrs[0] = 0;
             for(var i = 1; i < sp_num.length; i++){
-                sp_incrs[i] = sp_num[i] - sp_num[i-1];
+                sp_incrs[i] = sp_num[i] - sp_num[i-1]; //今日-昨日
             }
 
-            var cure_incrs = new Array();
+            var cure_incrs = new Array(); //（较昨日）新增治愈
             cure_incrs[0] = 0;
             for(var i = 1; i < cure_num.length; i++){
-                cure_incrs[i] = cure_num[i] - cure_num[i-1];
+                cure_incrs[i] = cure_num[i] - cure_num[i-1]; //今日-昨日
             }
 
-            var dead_incrs = new Array();
+            var dead_incrs = new Array(); //（较昨日）新增死亡
             dead_incrs[0] = 0;
             for(var i = 1; i < ip_num.length; i++){
-                dead_incrs[i] = dead_num[i] - dead_num[i-1];
+                dead_incrs[i] = dead_num[i] - dead_num[i-1]; //今日-昨日
             }
 
             option = {
@@ -176,7 +179,7 @@ window.onload = function () {
                 tooltip: {
                     trigger: 'axis',
                 },
-                legend: {
+                legend: { //图例
                     name: ['新增感染','新增疑似','新增治愈','新增死亡'],
                     right: 'right',
                 },
@@ -254,10 +257,12 @@ window.onload = function () {
             if (option && typeof option === "object") {
                 myChart.setOption(option, true);
             }
+            //设置页面上各类型人数和新增人数的显示
             document.getElementById("ip_num").innerHTML = ip_num[ip_num.length-1];
             document.getElementById("sp_num").innerHTML = sp_num[sp_num.length-1];
             document.getElementById("cure_num").innerHTML = cure_num[cure_num.length-1];
             document.getElementById("dead_num").innerHTML = dead_num[dead_num.length-1];
+            //使用新增数据的最后一项，即较昨日新增
             var ip_increase = ip_incrs[ip_incrs.length-1];
             var sp_increase = sp_incrs[sp_incrs.length-1];
             var cure_increase = cure_incrs[cure_incrs.length-1];
@@ -292,6 +297,9 @@ $(document).ready(function(){
                 var sp_num = new Array();
                 var cure_num = new Array();
                 var dead_num = new Array();
+                /*
+                将此类1545299299910时间格式转化为yyyy-mm-dd时间格式
+                */
                 var date = new Date(json.results[0].updateTime);
                 var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
                 var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
@@ -302,7 +310,7 @@ $(document).ready(function(){
                     month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
                     currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
                     temp = date.getFullYear() + "-" + month + "-" + currentDate;
-                    if(temp != dateList[j-1]){
+                    if(temp != dateList[j-1]){ //如果该时间已经记录过
                         dateList[j] = date.getFullYear() + "-" + month + "-" + currentDate;
                         ip_num[j] = json.results[i].confirmedCount;
                         sp_num[j] = json.results[i].suspectedCount;
@@ -318,7 +326,7 @@ $(document).ready(function(){
                 }
                 var dateList1 = new Array();
                 for(i = 0; i < dateList.length; i++){
-                    if(date_limit < dateList[i])
+                    if(date_limit < dateList[i]) ////如果该日期超过选择日期
                         break;
                     dateList1[i] = dateList[i];
                 }
@@ -326,27 +334,27 @@ $(document).ready(function(){
                 var dom = document.getElementById("province");
                 var myChart = echarts.init(dom);
 
-                var ip_incrs = new Array();
+                var ip_incrs = new Array(); //（较昨日）新增确诊
                 ip_incrs[0] = 0;
-                for(var i = 1; i < dateList1.length; i++){
+                for(var i = 1; i < dateList1.length; i++){ //使用限制时间下的时间数组长度
                     ip_incrs[i] = ip_num[i] - ip_num[i-1];
                 }
 
-                var sp_incrs = new Array();
+                var sp_incrs = new Array(); //（较昨日）新增疑似
                 sp_incrs[0] = 0;
-                for(var i = 1; i < dateList1.length; i++){
+                for(var i = 1; i < dateList1.length; i++){ //使用限制时间下的时间数组长度
                     sp_incrs[i] = sp_num[i] - sp_num[i-1];
                 }
 
-                var cure_incrs = new Array();
+                var cure_incrs = new Array(); //（较昨日）新增治愈
                 cure_incrs[0] = 0;
-                for(var i = 1; i < dateList1.length; i++){
+                for(var i = 1; i < dateList1.length; i++){ //使用限制时间下的时间数组长度
                     cure_incrs[i] = cure_num[i] - cure_num[i-1];
                 }
 
-                var dead_incrs = new Array();
+                var dead_incrs = new Array(); //（较昨日）新增死亡
                 dead_incrs[0] = 0;
-                for(var i = 1; i < dateList1.length; i++){
+                for(var i = 1; i < dateList1.length; i++){ //使用限制时间下的时间数组长度
                     dead_incrs[i] = dead_num[i] - dead_num[i-1];
                 }
 
@@ -436,10 +444,12 @@ $(document).ready(function(){
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
+                //设置页面上各类型人数和新增人数的显示
                 document.getElementById("ip_num").innerHTML = ip_num[dateList1.length-1];
                 document.getElementById("sp_num").innerHTML = sp_num[dateList1.length-1];
                 document.getElementById("cure_num").innerHTML = cure_num[dateList1.length-1];
                 document.getElementById("dead_num").innerHTML = dead_num[dateList1.length-1];
+                //使用新增数据的最后一项，即较昨日新增
                 var ip_increase = ip_incrs[ip_incrs.length-1];
                 var sp_increase = sp_incrs[sp_incrs.length-1];
                 var cure_increase = cure_incrs[cure_incrs.length-1];
