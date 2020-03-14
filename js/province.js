@@ -284,7 +284,113 @@ window.onload = function () {
 $(document).ready(function(){
     $("#confirm").click(function () {
         var date_limit = document.getElementById("date").value;
-        var url = "../json/areaAnHui.json";
+
+        var string = location.search; //获取url中"?"符后的字串
+        var province = decodeURI(string).replace("?","");
+        var url;
+
+        switch (province) { //根据得到的字符串，选择对应的json文件
+            case "安徽":
+                url = "../json/areaAnHui.json";
+                break;
+            case "澳门":
+                url = "../json/areaAoMen.json";
+                break;
+            case "北京":
+                url = "../json/areaBeiJing.json";
+                break;
+            case "重庆":
+                url = "../json/areaChongQing.json";
+                break;
+            case "福建":
+                url = "../json/areaFuJian.json";
+                break;
+            case "甘肃":
+                url = "../json/areaGanSu.json";
+                break;
+            case "广东":
+                url = "../json/areaGuangDong.json";
+                break;
+            case "广西":
+                url = "../json/areaGuangXi.json";
+                break;
+            case "贵州":
+                url = "../json/areaGuiZhou.json";
+                break;
+            case "海南":
+                url = "../json/areaHaiNan.json";
+                break;
+            case "河北":
+                url = "../json/areaHeBei.json";
+                break;
+            case "黑龙江":
+                url = "../json/areaHeiLongJiang.json";
+                break;
+            case "河南":
+                url = "../json/areaHeNan.json";
+                break;
+            case "湖北":
+                url = "../json/areaHuBei.json";
+                break;
+            case "湖南":
+                url = "../json/areaHuNan.json";
+                break;
+            case "江苏":
+                url = "../json/areaJiangSu.json";
+                break;
+            case "江西":
+                url = "../json/areaJiangXi.json";
+                break;
+            case "吉林":
+                url = "../json/areaJiLin.json";
+                break;
+            case "辽宁":
+                url = "../json/areaLiaoNing.json";
+                break;
+            case "内蒙古":
+                url = "../json/areaNeiMengGu.json";
+                break;
+            case "宁夏":
+                url = "../json/areaNingXia.json";
+                break;
+            case "青海":
+                url = "../json/areaQingHai.json";
+                break;
+            case "陕西":
+                url = "../json/areaShan3Xi.json";
+                break;
+            case "山东":
+                url = "../json/areaShanDong.json";
+                break;
+            case "山西":
+                url = "../json/areaShanXi.json";
+                break;
+            case "四川":
+                url = "../json/areaSiChuan.json";
+                break;
+            case "台湾":
+                url = "../json/areaTaiWan.json";
+                break;
+            case "天津":
+                url = "../json/areaTianJin.json";
+                break;
+            case "香港":
+                url = "../json/areaXiangGang.json";
+                break;
+            case "新疆":
+                url = "../json/areaXinJiang.json";
+                break;
+            case "西藏":
+                url = "../json/areaQingHai.json";
+                break;
+            case "云南":
+                url = "../json/areaYunNan.json";
+                break;
+            case "浙江":
+                url = "../json/areaZheJiang.json";
+                break;
+        }
+
         var request = new XMLHttpRequest();
         request.open("get", url);
         request.send(null);
@@ -326,7 +432,7 @@ $(document).ready(function(){
                 }
                 var dateList1 = new Array();
                 for(i = 0; i < dateList.length; i++){
-                    if(date_limit < dateList[i]) ////如果该日期超过选择日期
+                    if(date_limit < dateList[i]) //如果该日期超过选择日期
                         break;
                     dateList1[i] = dateList[i];
                 }
