@@ -26,26 +26,28 @@
 }
 
 #left {
-    background: #808080;
-    color: #ffffff;
+    background: #99bbff;
     position: absolute;
     height: 135%;
     width: 15%;
     top: 10%;
     left: 15%;
+    /*设置边框*/
+    border: 1px solid #000000;
     /*为左上角、左下角设置弧度值*/
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
 #right {
-    background: #ff0000;
-    color: #ffffff;
+    background: #ffffff;
     position: absolute;
     height: 135%;
     width: 55%;
     top: 10%;
     left: 30%;
+    /*设置边框*/
+    border: 1px solid #000000;
     /*为右上角、右下角设置弧度值*/
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -69,6 +71,7 @@
     width: 5%;
     top: 23%;
     left: 77%;
+    border-radius: 5px;
 }
 
 #icon1 {
@@ -129,7 +132,6 @@
 }
 
 #back {
-    background: #5f5c5c;
     color: #000000;
     position: absolute;
     height: 4.5%;
@@ -140,6 +142,8 @@
     align-items: center;
     justify-content: center;
     font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #000000;
 }
 
 #province_name {
@@ -167,7 +171,10 @@
     width: 50%;
     top: 30%;
     left: 33%;
+    /*设置边框圆角*/
     border-radius: 25px;
+    /*设置边框*/
+    border: 1px solid #000000;
 }
 
 .type {
@@ -231,10 +238,12 @@
 }
 
 #trend {
-    background: #ffffff;
+    background: #eeeeee;
     position: absolute;
     height: 85%;
     width: 50%;
     top: 55%;
     left: 33%;
+    /*设置边框*/
+    border: 1px solid #000000;
 }
