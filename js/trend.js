@@ -124,6 +124,22 @@ window.onload = function () {
 			if (option && typeof option === "object") {
 				myChart.setOption(option, true);
 			}
+			document.getElementById("ip_num").innerHTML = ip_num[ip_num.length-1];
+			document.getElementById("sp_num").innerHTML = sp_num[sp_num.length-1];
+			document.getElementById("cure_num").innerHTML = cure_num[cure_num.length-1];
+			document.getElementById("dead_num").innerHTML = dead_num[dead_num.length-1];
+			var ip_increase = ip_incrs[ip_incrs.length-1] - ip_incrs[ip_incrs.length-2];
+			var sp_increase = sp_incrs[sp_incrs.length-1]- sp_incrs[sp_incrs.length-2];
+			var cure_increase = cure_incrs[cure_incrs.length-1] - cure_incrs[cure_incrs.length-2];
+			var dead_increase = dead_incrs[dead_incrs.length-1] - dead_incrs[dead_incrs.length-2];
+			document.getElementById("ip_incrs").innerHTML = "较昨日" +
+				(ip_increase > 0 ? "+" : "") + ip_increase;
+			document.getElementById("sp_incrs").innerHTML = "较昨日" +
+				(sp_increase > 0 ? "+" : "") + sp_increase;
+			document.getElementById("cure_incrs").innerHTML = "较昨日" +
+				(cure_increase > 0 ? "+" : "") + cure_increase;
+			document.getElementById("dead_incrs").innerHTML = "较昨日" +
+				(dead_increase > 0 ? "+" : "") + dead_increase;
 		}
 	}
 }
@@ -150,15 +166,20 @@ $(document).ready(function(){
 				var dead_num = new Array();
 				var dead_incrs = new Array();
 
-
 				for(i = 0; i < json.results.length; i++) {
-					var temp = json.results[i].ds.split("\/")[2] + "-"
-						+ json.results[i].ds.split("\/")[1] + "-"
-						+ json.results[i].ds.split("\/")[0];
-					if(data_limit < temp) {
+					var temp = json.results[i].ds.split("\/")[2] + "-";
+					if(json.results[i].ds.split("\/")[1].length == 1)
+						temp += "0"+ json.results[i].ds.split("\/")[1] + "-";
+					else
+						temp += json.results[i].ds.split("\/")[1] + "-";
+					if(json.results[i].ds.split("\/")[0].length == 1)
+						temp += "0"+ json.results[i].ds.split("\/")[0];
+					else
+						temp += json.results[i].ds.split("\/")[0];
+					if(date_limit < temp) {
 						break;
 					}
-					dateList1[0] = temp;
+					dateList1[i] = temp;
 					ip_num[i] = json.results[i].confirm;
 					ip_incrs[i] = json.results[i].confirm_add;
 					sp_num[i] = json.results[i].suspect;
@@ -257,6 +278,23 @@ $(document).ready(function(){
 				if (option && typeof option === "object") {
 					myChart.setOption(option, true);
 				}
+				var length = dateList1.length; //使用刚才记录时间的长度
+				document.getElementById("ip_num").innerHTML = ip_num[dateList1.length-1];
+				document.getElementById("sp_num").innerHTML = sp_num[dateList1.length-1];
+				document.getElementById("cure_num").innerHTML = cure_num[dateList1.length-1];
+				document.getElementById("dead_num").innerHTML = dead_num[dateList1.length-1];
+				var ip_increase = ip_incrs[dateList1.length-1] - ip_incrs[dateList1.length-2];
+				var sp_increase = sp_incrs[dateList1.length-1]- sp_incrs[dateList1.length-2];
+				var cure_increase = cure_incrs[dateList1.length-1] - cure_incrs[dateList1.length-2];
+				var dead_increase = dead_incrs[dateList1.length-1] - dead_incrs[dateList1.length-2];
+				document.getElementById("ip_incrs").innerHTML = "较昨日" +
+					(ip_increase > 0 ? "+" : "") + ip_increase;
+				document.getElementById("sp_incrs").innerHTML = "较昨日" +
+					(sp_increase > 0 ? "+" : "") + sp_increase;
+				document.getElementById("cure_incrs").innerHTML = "较昨日" +
+					(cure_increase > 0 ? "+" : "") + cure_increase;
+				document.getElementById("dead_incrs").innerHTML = "较昨日" +
+					(dead_increase > 0 ? "+" : "") + dead_increase;
 			}
 		}
 	})
